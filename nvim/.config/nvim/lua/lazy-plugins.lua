@@ -34,18 +34,12 @@ require('lazy').setup({
   require 'kickstart/plugins/neo-tree',
   require 'kickstart/plugins/cmp',
   require 'kickstart/plugins/leap',
-  require 'kickstart/plugins/rose-pine',
   require 'kickstart/plugins/surround',
   require 'kickstart/plugins/harpoon',
   require 'kickstart/plugins/sonokai',
   require 'kickstart/plugins/context',
   require 'kickstart/plugins/leetcode',
-  require 'kickstart/plugins/kulala',
-  require 'kickstart/plugins/rest',
   require 'kickstart/plugins/trouble',
-  require 'kickstart/plugins/marko',
-  require 'kickstart/plugins/copilot-chat',
-  require 'kickstart/plugins/copilot',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.

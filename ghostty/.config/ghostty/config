@@ -1,5 +1,7 @@
 font-family = FireCode Nerd Font
-font-size = 22
+# Mac font size scaling
+# font-size = 22 
+font-size = 18
 background-opacity = 0.77
 gtk-titlebar = true
 

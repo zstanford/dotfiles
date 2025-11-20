@@ -17,3 +17,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH":"$HOME/.local/scripts/"
 bindkey -s ^f "tmux-sessionizer\n"
 
+
+# bun completions
+[ -s "/home/yaya/.bun/_bun" ] && source "/home/yaya/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
