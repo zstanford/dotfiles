@@ -31,3 +31,6 @@ palette = 12=#76cce0
 palette = 13=#b39df3
 palette = 14=#f39660
 palette = 15=#e2e2e3
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95

@@ -1,0 +1,40 @@
+# -------------------------
+#  Format Selection
+# -------------------------
+# Best video + best audio
+# Fallback to best single-file
+-f "bv*+ba/b"
+
+# Prefer MP4 output when possible
+--merge-output-format mp4
+
+# -------------------------
+#  File Naming
+# -------------------------
+# For playlists:
+#   Folder = playlist title
+#   File   = Video Title.ext
+# For single videos:
+#   File   = Video Title.ext
+-o "~/Videos/%(playlist_title)s/%(title)s.%(ext)s"
+
+# -------------------------
+#  Metadata & Embeds
+# -------------------------
+--embed-thumbnail
+--embed-metadata
+--embed-chapters
+
+# -------------------------
+#  Misc Quality-of-Life
+# -------------------------
+--no-mtime                  # don't change file timestamps
+# --concurrent-fragments 4    # faster downloads
+--progress                 # show progress bar
+--windows-filenames
+
+--js-runtimes node
+
+-t sleep
+
+--remote-components ejs:github

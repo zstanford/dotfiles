@@ -1,0 +1,157 @@
+" --- PLUGINS & EMULATIONS ---
+set surround
+set commentary
+set highlightedyank
+" argtextobj is a recommended addition for 'inner argument' text objects
+set argtextobj
+set ideajoin
+set which-key
+set NERDTree
+
+" --- SYSTEM SETTINGS ---
+set clipboard+=unnamedplus
+set number relativenumber
+set idearefactormode=keep
+set undofile
+set signcolumn=yes
+set updatetime=250
+set timeoutlen=300
+set scrolloff=10
+set colorcolumn=80
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+set notimeout
+set nowrap
+
+" --- NAVIGATION & SEARCH MODAL FIX ---
+" This allows Ctrl+N/P to navigate IntelliJ's 'Search Everywhere' and autocomplete menus
+set handler <C-n> vim
+set handler <C-p> vim
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-p> <Up>
+
+" --- LEADER & GENERAL MAPPINGS ---
+let mapleader = " "
+
+inoremap <C-c> <Esc>
+nnoremap <Esc> :nohlsearch<CR>
+nnoremap \ :action ActivateProjectToolWindow<CR>
+noremap <leader>cc :edit ~/.ideavimrc<cr>
+noremap <leader>cs :source ~/.ideavimrc<cr>
+
+" NERDTree Navigation
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" Movement & Centering
+nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Line Swapping & Indenting
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap < <gv
+vnoremap > >gv
+
+" Clipboard & Deleting
+xnoremap <leader>p "_dP
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" --- WINDOW & TAB MANAGEMENT ---
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <C-Up> :resize +2<CR>
+nnoremap <C-Down> :resize -2<CR>
+nnoremap <C-Left> :vertical resize -2<CR>
+nnoremap <C-Right> :vertical resize +2<CR>
+
+nmap <S-h> <Action>(PreviousTab)
+nmap <S-l> <Action>(NextTab)
+
+" --- WRAP & VISUAL LINE SETTINGS ---
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap g0 g^
+nnoremap g$ g$
+nnoremap <Up> gk
+xnoremap j gj
+xnoremap <Down> gj
+xnoremap k gk
+xnoremap <Up> gk
+nnoremap <leader>sw :action EditorToggleUseSoftWraps<CR>
+nnoremap <leader>rl :set relativenumber!<CR>
+
+" --- INTELLIJ ACTIONS ---
+
+" Search/Navigation
+map <leader>sg <Action>(FindInPath)
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sa <Action>(GotoAction)
+map <leader><leader> <Action>(RecentFiles)
+map <leader>lc <Action>(JumpToLastChange)
+map <leader>ll <Action>(RecentLocation)
+map gi <Action>(GotoImplementation)
+map gy <Action>(GotoTypeDeclaration)
+map gm <Action>(GotoTest)
+map gt <Action>(GotoSuperMethod)
+
+" Refactoring & Editing
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>f<leader> <Action>(ReformatCode)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>fr <Action>(Replace)
+map <leader>fp <Action>(FindInPath)
+nnoremap gco o<Esc>gcc
+nnoremap gcO O<Esc>gcc
+
+" Usages & Errors
+map <leader>ug <Action>(FindUsages)
+map <leader>uu <Action>(ShowUsages)
+map <leader>vs <Action>(ViewSource)
+map <leader>xl :action ShowUsages<CR>
+nnoremap <leader>q :action ShowErrorDescription<CR>
+nnoremap <leader>xq :action ShowErrorDescription<CR>
+nnoremap <leader>cd :action ShowErrorDescription<CR>
+nnoremap <leader>u :action RecentChanges<CR>
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+
+" Implementation/Definition
+map <leader>im <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinitions)
+map <leader>ti <Action>(ExpressionTypeInfo)
+
+" Splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>wh <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+map <leader>wd <Action>(CloseEditor)
+map <leader>mtr <Action>(MoveTabRight)
+
+" Surround Custom Actions
+nnoremap gza :action SurroundWith
+vnoremap gza :action SurroundWith
+nnoremap gzd ds
+nnoremap gzr cs
