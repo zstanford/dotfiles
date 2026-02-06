@@ -36,10 +36,11 @@ require('lazy').setup({
   require 'kickstart/plugins/leap',
   require 'kickstart/plugins/surround',
   require 'kickstart/plugins/harpoon',
-  require 'kickstart/plugins/sonokai',
+  -- require 'kickstart/plugins/sonokai',
   require 'kickstart/plugins/context',
   require 'kickstart/plugins/leetcode',
   require 'kickstart/plugins/trouble',
+  require 'kickstart/plugins/nightfall',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
